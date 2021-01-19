@@ -1,0 +1,41 @@
+from datetime import datetime
+import playsound
+import random
+
+testing = True
+nl = ['n', 'l']
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+glhf = ''
+
+time = input("When would you like your timer to be at?: ")
+
+
+confirm = input(f"You want your timer at {time}AM? Y/N: ")
+
+
+if confirm == 'Y':
+    print("Great, your time is set! Good luck cause ur gonna need it ;)")
+    time = time
+    while testing:
+        if time == (datetime.now().strftime("%H:%M")):
+            for i in range(10):
+                if random.choice(nl) == 'n':
+                    glhf += random.choice(numbers)
+                if random.choice(nl) == 'l':
+                    glhf += random.choice(letters)
+            playsound.playsound('annoying_funny_sound.mp3')
+            print("played")
+            for i in range(20):
+                print("WAKE THE FU*@ UP")
+            answer = input("Type the following: " + glhf + '\n')
+            if answer == glhf:
+                print("Good Job!")
+                testing = False
+            else:
+                print("OOF")
+
+elif confirm == 'N':
+    print("...")
+else:
+    print(".....")
